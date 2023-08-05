@@ -48,16 +48,14 @@ const pizzas = [
   },
 ];
 
-// console.log(pizzas[1]['nombre']);
-// console.log(pizzas[1].nombre);
-
 /* 
 Utilizando métodos de array e iterando sobre el array de pizzas, realizar las siguientes actividades, imprimiendo en consola:
 */
 
-console.log('Punto a: Las pizzas que tengan un id impar');
-console.log('');
+console.log("Punto a: Las pizzas que tengan un id impar");
+console.log("");
 
+// Solución con for:
 // for (let i = 0; i < pizzas.length; i++){
 //   if (pizzas[i].id % 2 === 1){
 //     console.log(`${pizzas[i].nombre} (id: ${pizzas[i].id})
@@ -66,58 +64,56 @@ console.log('');
 //   }
 // }
 
-pizzas.forEach( function(unaPizza) {
+// Solución con foreach:
+pizzas.forEach(function (unaPizza) {
   if (unaPizza.id % 2 !== 0) {
     console.log(`${unaPizza.nombre} (id: ${unaPizza.id})
-    Ingredientes: ${unaPizza.ingredientes.join(', ')}
-    `);
+    Ingredientes: ${unaPizza.ingredientes.join(", ")}  `);
   }
-}
-)
+});
 
-
-console.log('------------------------------------------');
-console.log('Punto b: Responder: \¿Hay alguna pizza que valga menos de $600\?');
-console.log('');
+console.log("------------------------------------------");
+console.log("Punto b: Responder: ¿Hay alguna pizza que valga menos de $600?");
+console.log("");
 
 let hay = false;
 let pizzasBaratas = [];
-for (let i = 0;  i < pizzas.length; i++) {
+for (let i = 0; i < pizzas.length; i++) {
   if (pizzas[i].precio < 600) {
     hay = true;
     pizzasBaratas.push(i);
-  } 
+  }
 }
 
 if (hay === false) {
-  console.log('La respuesta es: No, no hay ninguna pizza cuyo valor sea menor que $ 600,-');
+  console.log(
+    "La respuesta es: No, no hay ninguna pizza cuyo valor sea menor que $ 600,-"
+  );
 } else {
-  console.log('La respuesta es: Si, hay pizzas cuyo valor es menor que $ 600,-');
-  pizzasBaratas.forEach(id =>
-    console.log(pizzas[id].nombre)
-    )
+  console.log(
+    "La respuesta es: Si, hay pizzas cuyo valor es menor que $ 600,-:"
+  );
+  pizzasBaratas.forEach((id) => console.log(pizzas[id].nombre));
 }
 
-console.log('------------------------------------------');
-console.log('Punto c: El nombre de cada pizza con su respectivo precio.');
-console.log('');
+console.log("------------------------------------------");
+console.log("Punto c: El nombre de cada pizza con su respectivo precio.");
+console.log("");
 
-pizzas.forEach( cadaPizza => 
-  console.log(`${cadaPizza.nombre}. Precio: $${cadaPizza.precio},- ` )
-  )
+pizzas.forEach((cadaPizza) =>
+  console.log(`${cadaPizza.nombre}. Precio: $${cadaPizza.precio},- `)
+);
 
-console.log('------------------------------------------');
-console.log('Punto d: Todos los ingredientes de cada pizza.');
-console.log('');
+console.log("------------------------------------------");
+console.log("Punto d: Todos los ingredientes de cada pizza.");
+console.log("");
 
-pizzas.forEach( function(listaPizza) { 
+pizzas.forEach(function (listaPizza) {
   let listaIng = [];
-  listaPizza.ingredientes.forEach( cadaIng =>
-    listaIng.push(cadaIng)
-    )
-    let ultimoIng = listaIng.pop();
-    console.log(`La ${listaPizza.nombre} tiene: ${listaIng.join(', ')} y ${ultimoIng}.`)
-  }
-  )
-  console.log('------------------------------------------');
-  
+  listaPizza.ingredientes.forEach((cadaIng) => listaIng.push(cadaIng));
+  let ultimoIng = listaIng.pop();
+  console.log(
+    `La ${listaPizza.nombre} tiene: ${listaIng.join(", ")} y ${ultimoIng}.`
+  );
+});
+console.log("------------------------------------------");
